@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6A530971EF6A59A00B3BCE2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A530951EF6A3BC00B3BCE2 /* Team.swift */; };
 		OBJ_1002 /* http_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_470 /* http_parser.c */; };
 		OBJ_1004 /* Bits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_740 /* Bits.framework */; };
 		OBJ_1005 /* Debugging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_741 /* Debugging.framework */; };
@@ -4400,6 +4401,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C6A530951EF6A3BC00B3BCE2 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Droplet+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Droplet+Setup.swift"; sourceTree = "<group>"; };
 		OBJ_100 /* Query+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Query+Group.swift"; sourceTree = "<group>"; };
 		OBJ_101 /* Scope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
@@ -5842,6 +5844,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_15 /* Post.swift */,
+				C6A530951EF6A3BC00B3BCE2 /* Team.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -9540,6 +9543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				C6A530971EF6A59A00B3BCE2 /* Team.swift in Sources */,
 				OBJ_2284 /* Config+Setup.swift in Sources */,
 				OBJ_2285 /* Droplet+Setup.swift in Sources */,
 				OBJ_2286 /* Routes.swift in Sources */,

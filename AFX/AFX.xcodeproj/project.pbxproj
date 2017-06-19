@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C6A530971EF6A59A00B3BCE2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A530951EF6A3BC00B3BCE2 /* Team.swift */; };
+		C6B5E1F01EF7EA8B008F3601 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B5E1ED1EF7EA72008F3601 /* User.swift */; };
+		C6B5E1F21EF7EC0D008F3601 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B5E1F11EF7EC0D008F3601 /* Stock.swift */; };
+		C6B5E1F41EF7EC20008F3601 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B5E1F31EF7EC20008F3601 /* Transaction.swift */; };
 		OBJ_1002 /* http_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_470 /* http_parser.c */; };
 		OBJ_1004 /* Bits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_740 /* Bits.framework */; };
 		OBJ_1005 /* Debugging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_741 /* Debugging.framework */; };
@@ -4402,6 +4405,9 @@
 
 /* Begin PBXFileReference section */
 		C6A530951EF6A3BC00B3BCE2 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		C6B5E1ED1EF7EA72008F3601 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C6B5E1F11EF7EC0D008F3601 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		C6B5E1F31EF7EC20008F3601 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Droplet+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Droplet+Setup.swift"; sourceTree = "<group>"; };
 		OBJ_100 /* Query+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Query+Group.swift"; sourceTree = "<group>"; };
 		OBJ_101 /* Scope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
@@ -5845,6 +5851,9 @@
 			children = (
 				OBJ_15 /* Post.swift */,
 				C6A530951EF6A3BC00B3BCE2 /* Team.swift */,
+				C6B5E1ED1EF7EA72008F3601 /* User.swift */,
+				C6B5E1F11EF7EC0D008F3601 /* Stock.swift */,
+				C6B5E1F31EF7EC20008F3601 /* Transaction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -6908,7 +6917,7 @@
 			path = Email;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -6919,7 +6928,6 @@
 				OBJ_25 /* Dependencies */,
 				OBJ_739 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_50 /* Fluent 2.1.0 */ = {
@@ -8857,7 +8865,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_739 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -9545,10 +9553,13 @@
 			files = (
 				C6A530971EF6A59A00B3BCE2 /* Team.swift in Sources */,
 				OBJ_2284 /* Config+Setup.swift in Sources */,
+				C6B5E1F21EF7EC0D008F3601 /* Stock.swift in Sources */,
 				OBJ_2285 /* Droplet+Setup.swift in Sources */,
 				OBJ_2286 /* Routes.swift in Sources */,
 				OBJ_2287 /* PostController.swift in Sources */,
 				OBJ_2288 /* Post.swift in Sources */,
+				C6B5E1F01EF7EA8B008F3601 /* User.swift in Sources */,
+				C6B5E1F41EF7EC20008F3601 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

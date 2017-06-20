@@ -22,5 +22,6 @@ extension Config {
         preparations.append(Team.self)
         preparations.append(User.self)
         preparations.append(Stock.self)
+        preparations.append(Transaction.self)
     }
 }

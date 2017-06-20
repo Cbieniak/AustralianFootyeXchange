@@ -14,11 +14,10 @@ final class User: Model {
     static let idKey = "id"
     static let nameKey = "name"
     
-    
     var stockPortfolio: Children<User, Stock> {
         return children()
     }
-    //TODO MANY STOCKS
+    
     var stocks: Siblings<User, Team, Stock> {
         return siblings()
     }

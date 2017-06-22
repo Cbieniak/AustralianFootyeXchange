@@ -1,13 +1,14 @@
 import Vapor
 import FluentProvider
 import HTTP
+import AuthProvider
 
 final class User: Model {
     let storage = Storage()
     
     // MARK: Properties and database keys
     
-    static let foreignIdKey = "user_id"
+    static let foreignIdKey = "userId"
     
     var name: String
     
@@ -105,6 +106,12 @@ extension User: Updateable {
             }
         ]
     }
+}
+
+extension User: TokenAuthenticatable {
+    // the token model that should be queried
+    // to authenticate this user
+    public typealias TokenType = DefaultToken
 }
 
 

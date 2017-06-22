@@ -7,6 +7,11 @@ final class PostController: ResourceRepresentable {
     /// When users call 'GET' on '/posts'
     /// it should return an index of all available posts
     func index(req: Request) throws -> ResponseRepresentable {
+        let user = User(name: "Christian")
+        user.id = "1"
+        let token = DefaultToken(token: "hi", userId: "1")
+        try? user.save()
+        try? token.save()
         return try Post.all().makeJSON()
     }
 

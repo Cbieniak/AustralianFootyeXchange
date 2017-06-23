@@ -12,8 +12,19 @@ final class User: Model {
     
     var name: String
     
+    /// The user's email
+    var email: String
+    
+    /// The user's _hashed_ password
+    var password: String?
+    
+    var token: String?
+    
     static let idKey = "id"
     static let nameKey = "name"
+    static let emailKey = "email"
+    static let passwordKey = "password"
+    static let tokenKey = "token"
     
     var stockPortfolio: Children<User, Stock> {
         return children()
@@ -23,9 +34,19 @@ final class User: Model {
         return siblings()
     }
     
+    
+    
+    func didCreate() {
+        let defaultToken = DefaultToken(token: UUID().uuidString, userId: self.id!)
+        self.token = defaultToken.token
+        try? defaultToken.save()
+    }
+    
     /// Creates a new Team
-    init(name: String) {
+    init(name: String, email: String, password: String? = nil) {
         self.name = name
+        self.email = email
+        self.password = password
     }
     
     // MARK: Fluent Serialization
@@ -34,12 +55,17 @@ final class User: Model {
     /// database row
     init(row: Row) throws {
         name = try row.get(User.nameKey)
+        email = try row.get(User.emailKey)
+        password = try row.get(User.passwordKey)
+        token = try row.get(User.tokenKey)
     }
     
     // Serializes the Post to the database
     func makeRow() throws -> Row {
         var row = Row()
         try row.set(User.nameKey, name)
+        try row.set(User.emailKey, email)
+        try row.set(User.passwordKey, password)
         return row
     }
 }
@@ -53,6 +79,8 @@ extension User: Preparation {
         try database.create(self) { builder in
             builder.id()
             builder.string(User.nameKey)
+            builder.string(User.emailKey)
+            builder.string(User.passwordKey)
         }
     }
     
@@ -72,7 +100,9 @@ extension User: Preparation {
 extension User: JSONConvertible {
     convenience init(json: JSON) throws {
         try self.init(
-            name: json.get(User.nameKey)
+            name: json.get(User.nameKey),
+            email: json.get(User.emailKey),
+            password: json.get(User.passwordKey)
         )
     }
     
@@ -80,6 +110,9 @@ extension User: JSONConvertible {
         var json = JSON()
         try json.set(User.idKey, id)
         try json.set(User.nameKey, name)
+        try json.set(User.emailKey, email)
+        try json.set(User.passwordKey, password)
+        try json.set(User.tokenKey, token)
         return json
     }
 }
@@ -107,6 +140,25 @@ extension User: Updateable {
         ]
     }
 }
+
+// MARK: Password
+// This allows the User to be authenticated
+// with a password. We will use this to initially
+// login the user so that we can generate a token.
+extension User: PasswordAuthenticatable {
+    var hashedPassword: String? {
+        return password
+    }
+    
+    public static var passwordVerifier: PasswordVerifier? {
+        get { return _userPasswordVerifier }
+        set { _userPasswordVerifier = newValue }
+    }
+}
+
+// store private variable since storage in extensions
+// is not yet allowed in Swift
+private var _userPasswordVerifier: PasswordVerifier? = nil
 
 extension User: TokenAuthenticatable {
     // the token model that should be queried
